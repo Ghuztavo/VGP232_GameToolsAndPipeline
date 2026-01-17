@@ -12,8 +12,8 @@ namespace Assignment2a
     {
         public bool Load(string filename)
         {
-            if (!File.Exists(filename))
-                return false;
+            if (new FileInfo(filename).Length == 0)
+                return true;
 
             try
             {
@@ -45,7 +45,27 @@ namespace Assignment2a
 
         public bool Save(string filename)
         {
-            return true;
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(filename))
+                {
+                    // Write header
+                    writer.WriteLine("Name,Type,Image,Rarity,BaseAttack,SecondaryStat,Passive");
+
+                    // Write each weapon
+                    foreach (var weapon in this)
+                    {
+                        writer.WriteLine(weapon.ToString());
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving file: {ex.Message}");
+                return false;
+            }
         }
 
         // get the highest base attack
@@ -89,6 +109,20 @@ namespace Assignment2a
                 }
             }
             return weaponsOfType;
+        }
+
+        // get all weapons of a specific rarity
+        public List<Weapon> GetAllWeaponsOfRarity(int rarity)
+        {
+            List<Weapon> weaponsOfRarity = new List<Weapon>();
+            foreach (var weapon in this)
+            {
+                if (weapon.Rarity == rarity)
+                {
+                    weaponsOfRarity.Add(weapon);
+                }
+            }
+            return weaponsOfRarity;
         }
 
         public void SortBy(string columnName)
