@@ -12,8 +12,8 @@ namespace Assignment2a
     {
         public bool Load(string filename)
         {
-            if (new FileInfo(filename).Length == 0)
-                return true;
+            if (!File.Exists(filename))
+                return false;
 
             try
             {

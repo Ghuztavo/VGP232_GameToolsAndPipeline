@@ -40,6 +40,7 @@ namespace Assignment2a
             // We remove the output file after we are done.
             if (File.Exists(outputPath))
             {
+                // coment if I want to keep the output file to check
                 File.Delete(outputPath);
             }
         }
