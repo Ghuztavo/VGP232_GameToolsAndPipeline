@@ -1,0 +1,34 @@
+﻿<Window x:Class="Assignment2c.AddWeapon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment2c"
+        mc:Ignorable="d"
+        Title="AddWeapon" Height="550" Width="450" Background="Silver">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="121*"/>
+            <ColumnDefinition Width="104*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="10,26,0,0" TextWrapping="Wrap" Text="Name: " VerticalAlignment="Top"/>
+        <TextBox x:Name="AddWeaponNameBox" HorizontalAlignment="Left" Margin="93,25,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="264" Height="27" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,78,0,0" TextWrapping="Wrap" Text="Type:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,208,0,0" TextWrapping="Wrap" Text="Image URL:" VerticalAlignment="Top"/>
+        <Image x:Name="AddWeaponImage" HorizontalAlignment="Left" Height="84" Margin="93,107,0,0" VerticalAlignment="Top" Width="264" Grid.ColumnSpan="2" OpacityMask="White" TargetUpdated="URL_Changed"/>
+        <TextBox x:Name="AddWeaponImageURLBox" HorizontalAlignment="Left" Margin="93,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="264" Height="27" Grid.ColumnSpan="2" TextChanged="ImageUrlBox_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="15,266,0,0" TextWrapping="Wrap" Text="Rarity:" VerticalAlignment="Top"/>
+        <ComboBox x:Name="AddWeaponTypeComboBox" HorizontalAlignment="Left" Margin="93,78,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,319,0,0" TextWrapping="Wrap" Text="Base Attack:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,363,0,0" TextWrapping="Wrap" Text="Secondary Stat:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,403,0,0" TextWrapping="Wrap" Text="Passive:" VerticalAlignment="Top"/>
+        <ComboBox x:Name="AddWeaponRariyComboBox" HorizontalAlignment="Left" Margin="93,266,0,0" VerticalAlignment="Top" Width="60"/>
+        <TextBox x:Name="AddWeaponBaseAttackBox" HorizontalAlignment="Left" Margin="93,319,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="264" Height="27" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="AddWeaponSecondaryStatBox" HorizontalAlignment="Left" Margin="93,363,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="264" Height="27" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="AddWeaponPassiveBox" HorizontalAlignment="Left" Margin="93,403,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="264" Height="27" Grid.ColumnSpan="2"/>
+        <Button x:Name="AddWeaponCancelButton"  Content="Cancel" HorizontalAlignment="Left" Margin="53,451,0,0" VerticalAlignment="Top" Height="23" Width="62" Grid.Column="1" Click="CancelButton_Click"/>
+        <Button x:Name="AddWeaponAddButton"  Content="Add" HorizontalAlignment="Left" Margin="136,451,0,0" VerticalAlignment="Top" Height="23" Width="62" Grid.Column="1" Click="AddButton_Click"/>
+        <Button x:Name="AddWeaponAutoGenerateButton"  Content="Auto Generate" HorizontalAlignment="Left" Margin="10,451,0,0" VerticalAlignment="Top" Height="23" Width="81" Click="AutoGenerateButton_Click"/>
+
+    </Grid>
+</Window>
