@@ -94,11 +94,6 @@ namespace Assignment2c
             Close();
         }
 
-        private void URL_Changed(object sender, DataTransferEventArgs e)
-        {
-            // Unused
-        }
-
         // Helper to update image when text changes
         private void ImageUrlBox_TextChanged(object sender, TextChangedEventArgs e)
         {
