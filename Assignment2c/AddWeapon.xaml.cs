@@ -61,6 +61,7 @@ namespace Assignment2c
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
+            // Checks if required fields are filled and valid
             if (string.IsNullOrWhiteSpace(AddWeaponNameBox.Text) ||
                 AddWeaponTypeComboBox.SelectedItem == null ||
                 AddWeaponRariyComboBox.SelectedItem == null ||
@@ -75,7 +76,8 @@ namespace Assignment2c
                 MessageBox.Show("Base Attack must be a valid number.");
                 return;
             }
-            
+
+            // Create new weapon based on user input
             int rarity = (int)AddWeaponRariyComboBox.SelectedItem;
             Weapon.WeaponType type = (Weapon.WeaponType)AddWeaponTypeComboBox.SelectedItem;
 

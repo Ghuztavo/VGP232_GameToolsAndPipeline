@@ -20,7 +20,9 @@ namespace Assignment2c
 
     public partial class MainWindow : Window
     {
+        // List of weapons currently displayed in the ListBox
         private WeaponCollection mWeaponCollection;
+        // Full list of all weapons loaded, used for filtering
         private List<Weapon> mAllWeapons;
         public MainWindow()
         {
@@ -85,6 +87,7 @@ namespace Assignment2c
             ApplyFilter();
         }
 
+        // Filter the weapon collection based on the selected type and name filter
         private void ApplyFilter()
         {
             if (mAllWeapons.Count == 0)
@@ -127,6 +130,7 @@ namespace Assignment2c
             WeaponsListBox.Items.Refresh();
         }
 
+        // Open the AddWeapon window and add the new weapon if the user clicks "Add"
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             AddWeapon addWeaponWindow = new AddWeapon();
@@ -143,6 +147,7 @@ namespace Assignment2c
             }
         }
 
+        // Open the EditWeapon window for the selected weapon and update it if the user clicks "Save"
         private void EditWeaponButton_Click(object sender, RoutedEventArgs e)
         {
             if (WeaponsListBox.SelectedItem is Weapon selectedWeapon)

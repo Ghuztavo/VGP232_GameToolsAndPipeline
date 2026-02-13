@@ -29,6 +29,7 @@ namespace Assignment2c
 
         private void InitializeComboBoxes()
         {
+            // Populatet the weapon type and rarity combo boxes
             EditWeaponTypeComboBox.ItemsSource = Enum.GetValues(typeof(WeaponLib.Weapon.WeaponType));
             EditWeaponRarityComboBox.ItemsSource = new List<int> { 1, 2, 3, 4, 5 };
         }
@@ -52,7 +53,8 @@ namespace Assignment2c
 
         private void EditWeaponSaveButton_Click(object sender, RoutedEventArgs e)
         {
-             if (string.IsNullOrWhiteSpace(EditWeaponNameBox.Text) ||
+            // Validates the input
+            if (string.IsNullOrWhiteSpace(EditWeaponNameBox.Text) ||
                 EditWeaponTypeComboBox.SelectedItem == null ||
                 EditWeaponRarityComboBox.SelectedItem == null ||
                 string.IsNullOrWhiteSpace(EditWeaponBaseAttackBox.Text))
@@ -67,7 +69,7 @@ namespace Assignment2c
                 return;
             }
 
-            // Update the weapon
+            // Updates the weapon
             WeaponToEdit.Name = EditWeaponNameBox.Text;
             WeaponToEdit.Type = (WeaponLib.Weapon.WeaponType)EditWeaponTypeComboBox.SelectedItem;
             WeaponToEdit.Rarity = (int)EditWeaponRarityComboBox.SelectedItem;
@@ -90,13 +92,16 @@ namespace Assignment2c
         {
             Random random = new Random();
 
+            // Generate a random base attack between 20 and 50
             int baseAttack = random.Next(20, 51);
             EditWeaponBaseAttackBox.Text = baseAttack.ToString();
 
+            // Randomly select a weapon type from the enum
             Array values = Enum.GetValues(typeof(WeaponLib.Weapon.WeaponType));
             WeaponLib.Weapon.WeaponType randomType = (WeaponLib.Weapon.WeaponType)values.GetValue(random.Next(values.Length));
             EditWeaponTypeComboBox.SelectedItem = randomType;
 
+            // Randomly select a rarity between 1 and 5
             int rarity = random.Next(1, 6);
             EditWeaponRarityComboBox.SelectedItem = rarity;
         }
@@ -106,6 +111,7 @@ namespace Assignment2c
             UpdateImage();
         }
 
+        // helper to update the image preview when the URL changes
         private void UpdateImage()
         {
              try
